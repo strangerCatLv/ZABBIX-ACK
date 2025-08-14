@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Acknowledge Problems</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .ack-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background-color: #7a3ff2;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(122, 63, 242, 0.4);
+        }
+
+        .ack-btn:hover {
+            background-color: #692ce0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(122, 63, 242, 0.5);
+        }
+
+        .ack-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+            transition: transform 0.3s ease;
+        }
+
+        .ack-btn:hover svg {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="ack-btn" onclick="acknowledge()">
+        ACKNOWLEDGE
+    </button>
+
+    <script>
+        function acknowledge() {
+            fetch("http://localhost:5000/ack")
+                .then(res => res.json())
+                .then(data => {
+                    console.log("ACK Response:", data);
+                })
+                .catch(err => {
+                    console.error("Error:", err);
+                });
+        }
+    </script>
+
+</body>
+
+</html>

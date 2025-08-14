@@ -1,0 +1,4 @@
+Flask
+CORS
+requests
+flask-cors
